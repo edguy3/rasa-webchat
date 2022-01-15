@@ -3,8 +3,10 @@
 const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+// eslint-disable-next-line import/extensions
 const { version } = require('./package.json');
-const webpack = require('webpack')
+// eslint-disable-next-line import/no-extraneous-dependencies
+const webpack = require('webpack');
 
 module.exports = [{
   // entry: ['babel-polyfill', './index.js'],
@@ -14,9 +16,6 @@ module.exports = [{
     filename: 'index.js',
     library: 'WebChat',
     libraryTarget: 'umd'
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
   },
   mode: 'production',
   module: {
@@ -44,7 +43,7 @@ module.exports = [{
             loader: 'sass-loader',
             options: {
               sassOptions: {
-                includePaths: [path.resolve(__dirname, 'src/scss/')],
+                includePaths: [path.resolve(__dirname, 'src/scss/')]
               }
             }
           }
@@ -66,9 +65,10 @@ module.exports = [{
     process: 'process/browser'
   })],
   resolve: {
+    extensions: ['.js', '.jsx'],
     // ... rest of the resolve config
     fallback: {
-      "path": require.resolve("path-browserify")
+      path: require.resolve('path-browserify')
     }
   }
 }, {
@@ -95,9 +95,6 @@ module.exports = [{
     library: 'WebChat',
     libraryTarget: 'umd'
   },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
   mode: 'production',
   module: {
     rules: [
@@ -124,7 +121,7 @@ module.exports = [{
             loader: 'sass-loader',
             options: {
               sassOptions: {
-                includePaths: [path.resolve(__dirname, 'src/scss/')],
+                includePaths: [path.resolve(__dirname, 'src/scss/')]
               }
             }
           }
@@ -146,9 +143,10 @@ module.exports = [{
     process: 'process/browser'
   })],
   resolve: {
+    extensions: ['.js', '.jsx'],
     // ... rest of the resolve config
     fallback: {
-      "path": require.resolve("path-browserify")
+      path: require.resolve('path-browserify')
     }
   }
 }
